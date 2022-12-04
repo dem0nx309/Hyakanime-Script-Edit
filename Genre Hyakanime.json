@@ -1,5 +1,5 @@
 {
-  "Name": "Genre Fyakanime",
+  "Name": "Genre Hyakanime",
   "CreationDate": "2022-12-4",
   "Commands": [
     {
@@ -178,7 +178,7 @@
     },
     {
       "Command": "csvSave",
-      "Target": "genre-fyakanime",
+      "Target": "genre-hyakanime",
       "Value": "",
       "Description": ""
     },
