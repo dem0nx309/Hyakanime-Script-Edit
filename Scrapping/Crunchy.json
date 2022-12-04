@@ -1,0 +1,150 @@
+{
+  "Name": "Crunchy",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return prompt(\"Combien d'épisode fait votre saison ?\")",
+      "Value": "ep",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return prompt(\"Combien de temps en Minutes dure un Ep?\")",
+      "Value": "temp",
+      "Description": ""
+    },
+    {
+      "Command": "times",
+      "Target": "${ep}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${i} >= 27",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//*[@id=\"content\"]/div/div[2]/div/div[2]/div[2]/div[3]/div[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "/html/body/div[1]/div/div[2]/div/div[2]/div[2]/div[3]/div/div/div[${i}]/div/div[2]/h4",
+      "Value": "titre",
+      "Description": "titre"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return ${titre}.split(\" -\")[1].trim();",
+      "Value": "titre",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=/html/body/div[1]/div/div[2]/div/div[2]/div[2]/div[3]/div/div/div[${i}]/div/div[1]/div/div[1]/div/div/figure/img@src",
+      "Value": "img",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${img}; var replaced2 = mystring2.replace(/320x180/g, \"640x360\"); return replaced2",
+      "Value": "img",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[1]/div/div[2]/div/div[2]/div[2]/div[3]/div/div/div[${i}]/div/a",
+      "Value": "",
+      "Description": "ep suivant"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"content\"]/div/div[2]/div/div/div[2]/div/div[1]/div/div[4]/div/div/p",
+      "Value": "syno",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${syno}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${img}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${temp}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "crunchyroll",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "SLOW",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=/html/body/div[1]/div/div[2]/div/div/div[2]/div/div[1]/div/div[1]/div[1]/a/h4",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "MEDIUM",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

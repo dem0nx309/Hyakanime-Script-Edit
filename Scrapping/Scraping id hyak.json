@@ -1,0 +1,84 @@
+{
+  "Name": "Scraping id hyak",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "FAST",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "2841",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} < 3500",
+      "Value": "",
+      "Description": "Tant que i est supperieurs aux id"
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAn",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${i}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${IdMal}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${IdAn}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "Scraping Hyak id",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

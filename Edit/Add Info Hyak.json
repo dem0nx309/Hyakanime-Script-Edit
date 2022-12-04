@@ -1,0 +1,174 @@
+{
+  "Name": "Add Info Hyak",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "csvReadArray",
+      "Target": "hyakscrap.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${!csvReadMaxRow}",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${max}) - 1",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=title",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=romanji",
+      "Value": "${data[${max}][0]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleEN",
+      "Value": "${data[${max}][1]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleJP",
+      "Value": "${data[${max}][2]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[1]/div/div/div[1]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-3-option-${data[${max}][3]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[2]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-4-option-${data[${max}][4]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[3]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-5-option-0",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=NbEpisodes",
+      "Value": "${data[${max}][5]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "id=EpAverage",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][6]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[6]/div/div[1]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-6-option-${data[${max}][7]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"react-select-7-input\"]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][8]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=startdate",
+      "Value": "${data[${max}][9]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=enddate",
+      "Value": "${data[${max}][10]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][11]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAn",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "id=sources ",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "https://myanimelist.net/anime/${idMal} ${KEY_ENTER}https://anilist.co/anime/${idAn} ${KEY_ENTER}https://anidb.net/anime/${data[${max}][12]}",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

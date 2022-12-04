@@ -1,0 +1,198 @@
+{
+  "Name": "Genre Fyakanime",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "3647",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i}<3648",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "#LNF",
+      "Value": "Genre",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAnilist",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://anilist.co/anime/${idAnilist}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "b",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${b}<20",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"app\"]/div[3]/div/div[2]/div/div[2]/div[${b}]",
+      "Value": "test",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Genres\");",
+      "Value": "resultGenre",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultGenre} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Genres\\n/g,\"\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Comedy/g,\"Comedie\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Fantasy/g,\"Fantaisie\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Horror/g,\"Horreur\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Mahou Shoujo/g,\"Magical girl\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Music/g,\"Musique\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Mystery/g,\"Mystere\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Psychological/g,\"Psychologique\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Sports/g,\"Sport\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Supernatural/g,\"Surnaturel\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/\\n/g,\"${KEY_ENTER}\"); return replaced2",
+      "Value": "Genre",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "25",
+      "Value": "b",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${b}) + 1",
+      "Value": "b",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${i}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${idAnilist}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Genre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "genre-fyakanime",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

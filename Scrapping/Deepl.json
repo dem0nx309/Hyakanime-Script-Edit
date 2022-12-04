@@ -1,0 +1,792 @@
+{
+  "Name": "Deepl",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "comment",
+      "Target": "Temps ep trad = ? s",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return prompt(\"Quel mode ? (1= Tvdb 2= Tmdb 3= Fusion)\")",
+      "Value": "choix",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${choix} ==1",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "csvReadArray",
+      "Target": "tvdb.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i2} < ${!csvReadMaxRow}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=//textarea",
+      "Value": "${data[${i2}][1]}",
+      "Description": "syno"
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "verifyText",
+      "Target": "XPATH=//*",
+      "Value": "Type",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${francais} == \"anglais\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/main/div[3]/div[3]/section[2]/div[3]/div[4]/p/button/span",
+      "Value": "syno_trad",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "store // ${titre_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${syno_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][1]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "deepl",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i2}) + 1",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${choix} ==2",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "csvReadArray",
+      "Target": "tmdb.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i2} < ${!csvReadMaxRow}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=//textarea",
+      "Value": "${data[${i2}][1]}",
+      "Description": "syno"
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*//*[@id=\"dl_translator\"]/div[3]/div[3]/section[1]/div[1]/div/button/span/strong[contains(text(),'anglais')]",
+      "Value": "francais",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${francais} == \"anglais\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/main/div[3]/div[3]/section[2]/div[3]/div[4]/p/button/span",
+      "Value": "syno_trad",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "store // ${titre_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${syno_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][1]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "deepl",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i2}) + 1",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${choix} ==3",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "csvReadArray",
+      "Target": "fusion.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i2} < ${!csvReadMaxRow}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "xpath=//textarea",
+      "Value": "${data[${i2}][1]}",
+      "Description": "syno"
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*//*[@id=\"dl_translator\"]/div[3]/div[3]/section[1]/div[1]/div/button/span/strong[contains(text(),'anglais')]",
+      "Value": "francais",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${francais} == \"anglais\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "wait",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[3]/main/div[3]/div[3]/section[2]/div[3]/div[4]/p/button/span",
+      "Value": "syno_trad",
+      "Description": "//*[@id=\"dl_translator\"]/div[3]/div[3]/section[2]/div[4]/div[4]/p/button/span"
+    },
+    {
+      "Command": "comment",
+      "Target": "store // ${titre_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${syno_trad}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][0]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][1]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][2]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${data[${i2}][3]}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "deepl",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i2}) + 1",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "Name": "Test Titre",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "926",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i}<3648",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAnilist",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=title@value",
+      "Value": "titreFr",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=romanji@value",
+      "Value": "titreRomanji",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://myanimelist.net/anime/${idMal}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"contentWrapper\"]/div/div/div/div/h1/strong",
+      "Value": "Mal",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://anilist.co/anime/${idAnilist}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"app\"]/div[3]/div/div/div[2]/div/div[2]/h1",
+      "Value": "Anilist",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${i}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titreFr}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titreRomanji}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Mal}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Anilist}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "Verif-Titre",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

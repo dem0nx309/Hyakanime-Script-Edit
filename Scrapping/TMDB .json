@@ -1,0 +1,102 @@
+{
+  "Name": "TMDB ",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "FAST",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return prompt(\"Combien d'épisode fait votre saison ?\")",
+      "Value": "ep",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return prompt(\"Combien de temps en Minutes dure un Ep?\")",
+      "Value": "temp",
+      "Description": ""
+    },
+    {
+      "Command": "times",
+      "Target": "${ep}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[1]/main/section/div[2]/div/div/section/div[2]/div[${i}]/div/div[1]/div[2]/div/div[1]/div[1]/h3/a",
+      "Value": "titre",
+      "Description": "titre"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/div[1]/main/section/div[2]/div/div/section/div[2]/div[${i}]/div/div[1]/div[2]/div/div[2]/p",
+      "Value": "Syno",
+      "Description": "Syno"
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=/html/body/div[1]/main/section/div[2]/div/div/section/div[2]/div[${i}]/div/div[1]/div[1]/a/img@src",
+      "Value": "img",
+      "Description": "img"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${img}; var replaced2 = mystring2.replace(\"/t/p/w227_and_h127_bestv2\", \"https://www.themoviedb.org/t/p/original\"); return replaced2",
+      "Value": "img",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${syno}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${img}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${temp}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "tmdb",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 2",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

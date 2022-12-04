@@ -1,0 +1,270 @@
+{
+  "Name": "hyak-tmdb",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "csvReadArray",
+      "Target": "tmdb.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "onError",
+      "Target": "#restart",
+      "Value": "#restart",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "test2000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "!${!statusOK}",
+      "Value": "",
+      "Description": "fichier pas créer"
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "test2000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": "fichier créer"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "tmdb",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${!csvReadMaxRow}",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} <= 25",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${i} == 25",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "erreurvoulu",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "else",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "test2000.csv",
+      "Value": "csv",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${!csvReadMaxRow}",
+      "Value": "!csvReadLineNumber",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${!csvReadMaxRow}) + 1",
+      "Value": "i2",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${!csvReadMaxRow}) - 1",
+      "Value": "i3",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "xpath=//div[${i2}]/div[3]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "SLOW",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=title",
+      "Value": "${data[${i3}][0]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=duration",
+      "Value": "${data[${i3}][3]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=synopsis",
+      "Value": "${data[${i3}][1]}",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "css=#root > div > div.anime-all > div.anime-content > div > div.modification-body-ep > div > div.next-etape-modif > svg > polyline",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=image",
+      "Value": "${data[${i3}][2]}",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "css=#root > div > div.anime-all > div.anime-content > div > div.modification-body-ep > div.next-etape-modif > svg",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "100,700",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "MEDIUM",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "test2000.csv",
+      "Value": "csv",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!csvReadMaxRow} == ${max}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "gotoLabel",
+      "Target": "FIN",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "test2000",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "label",
+      "Target": "FIN",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Pensez a supprimer les CSV test et test2000",
+      "Value": "#shownotification",
+      "Description": ""
+    }
+  ]
+}

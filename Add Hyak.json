@@ -1,0 +1,1350 @@
+{
+  "Name": "Add Hyak",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "prompt",
+      "Target": "Renseigne l'id Mal",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "Renseigne l'id Anilist",
+      "Value": "idAnilist",
+      "Description": ""
+    },
+    {
+      "Command": "prompt",
+      "Target": "Renseigne l'id Anidb",
+      "Value": "idaniDb",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://myanimelist.net/anime/${idMal}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} < 26",
+      "Value": "",
+      "Description": "Tant que i est supperieurs aux id"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"content\"]/table/tbody/tr/td/div/div[${i}]",
+      "Value": "test",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Type\");",
+      "Value": "resultType",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultType} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Type: /g,\"\"); return replaced2",
+      "Value": "Type",
+      "Description": "Mal"
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Type} == \"TV\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "typeId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Type} == \"OVA\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "typeId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Type} == \"Movie\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "3",
+      "Value": "typeId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Type} == \"Special\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "2",
+      "Value": "typeId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Type} == \"ONA\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "typeId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Premiered\");",
+      "Value": "resultSaison",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSaison} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Premiered: /g,\"\"); return replaced2",
+      "Value": "Saison",
+      "Description": "Mal"
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${Saison}.includes(\"Fall\");",
+      "Value": "resultSaison",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSaison} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${Saison}; var replaced2 = mystring2.replace(/Fall /g,\"\"); return replaced2",
+      "Value": "Annee ",
+      "Description": "Mal"
+    },
+    {
+      "Command": "store",
+      "Target": "Automne ${Annee}",
+      "Value": "saisonId",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${Saison}.includes(\"Summer\");",
+      "Value": "resultSaison",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSaison} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${Saison}; var replaced2 = mystring2.replace(/Summer /g,\"\"); return replaced2",
+      "Value": "Annee ",
+      "Description": "Mal"
+    },
+    {
+      "Command": "store",
+      "Target": "Été ${Annee}",
+      "Value": "saisonId",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${Saison}.includes(\"Winter\");",
+      "Value": "resultSaison",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSaison} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${Saison}; var replaced2 = mystring2.replace(/Winter /g,\"\"); return replaced2",
+      "Value": "Annee ",
+      "Description": "Mal"
+    },
+    {
+      "Command": "store",
+      "Target": "Hiver ${Annee}",
+      "Value": "saisonId",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${Saison}.includes(\"Spring\");",
+      "Value": "resultSaison",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSaison} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${Saison}; var replaced2 = mystring2.replace(/Spring /g,\"\"); return replaced2",
+      "Value": "Annee ",
+      "Description": "Mal"
+    },
+    {
+      "Command": "store",
+      "Target": "Printemps ${Annee}",
+      "Value": "saisonId",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Episodes\");",
+      "Value": "resultEpisodes",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultEpisodes} == true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Episodes: /g,\"\"); return replaced2",
+      "Value": "Episodes",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Status\");",
+      "Value": "resultStatus",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultStatus} == true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Status: /g,\"\"); return replaced2",
+      "Value": "Status",
+      "Description": "Mal"
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Status} == \"Finished Airing\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "2",
+      "Value": "statusId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Status} == \"Currently Airing\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Duration\");",
+      "Value": "resultDuree",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultDuree} == true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Duration: /g,\"\"); return replaced2",
+      "Value": "Duree",
+      "Description": "Mal"
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${Duree}; var replaced2 = mystring2.replace(/min. per ep./g,\"\"); return replaced2",
+      "Value": "Duree",
+      "Description": "Mal"
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://anilist.co/anime/${idAnilist}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} < 21",
+      "Value": "",
+      "Description": "Tant que i est supperieurs aux id"
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"app\"]/div[3]/div/div[2]/div/div[2]/div[${i}]",
+      "Value": "test",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Romaji\");",
+      "Value": "resultRomanji",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultRomanji} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Romaji\\n/g,\"\"); return replaced2",
+      "Value": "MainTitre",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Native\");",
+      "Value": "resultNative",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultNative} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Native\\n/g,\"\"); return replaced2",
+      "Value": "TitreJap",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"English\");",
+      "Value": "resultEnglish",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultEnglish} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/English\\n/g,\"\"); return replaced2",
+      "Value": "TitreAnglais",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Source\");",
+      "Value": "resultSource",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultSource} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Source\\n/g,\"\"); return replaced2",
+      "Value": "Source",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Original\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "0",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Manga\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Anime\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "2",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Light Novel\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "3",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Web Novel\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "4",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Novel\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "5",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Doujinshi\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "6",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Video Game\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "7",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Visual Novel\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "8",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Comic\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "9",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Game\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "10",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Live Action\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "11",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Multimedia Project\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "12",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Picture Book\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "13",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${Source} == \"Other\"",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "14",
+      "Value": "sourceId",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Genres\");",
+      "Value": "resultGenre",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultGenre} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Genres\\n/g,\"\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Comedy/g,\"Comedie\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Fantasy/g,\"Fantaisie\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Horror/g,\"Horreur\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Mahou Shoujo/g,\"Magical girl\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Music/g,\"Musique\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Mystery/g,\"Mystere\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Psychological/g,\"Psychologique\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Sports/g,\"Sport\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/Supernatural/g,\"Surnaturel\"); return replaced2",
+      "Value": "modifGenre",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${modifGenre}; var replaced2 = mystring2.replace(/\\n/g,\"${KEY_ENTER}\"); return replaced2",
+      "Value": "Genre",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://anidb.net/anime/${idaniDb}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span@content",
+      "Value": "dateDebut",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span[2]@content",
+      "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!STATUSOK} == false",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[4]/td/span@content",
+      "Value": "dateDebut",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[4]/td/span[2]@content",
+      "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!STATUSOK} == false",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span@content",
+      "Value": "dateDebut",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span[2]@content",
+      "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!STATUSOK} == false",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span@content",
+      "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${MainTitre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${TitreAnglais}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!Statusok} == false",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${MainTitre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titreJap}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${typeId}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${sourceId}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!Statusok} == false",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Episodes}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Duree}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${statusId}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${saisonId}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!Statusok} == false",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "Non",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${dateDebut}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${dateFin}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Genre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${idaniDb}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "HyakScrap",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/new",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvReadArray",
+      "Target": "hyakscrap.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${!csvReadMaxRow}",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${max}) - 1",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=title",
+      "Value": "${data[${max}][1]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=romanji",
+      "Value": "${data[${max}][0]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleEN",
+      "Value": "${data[${max}][1]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleJP",
+      "Value": "${data[${max}][2]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[1]/div/div/div[1]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-3-option-${data[${max}][3]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[2]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-4-option-${data[${max}][4]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[3]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-5-option-0",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=NbEpisodes",
+      "Value": "${data[${max}][5]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "id=EpAverage",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][6]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[6]/div/div[1]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-6-option-${data[${max}][7]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"react-select-7-input\"]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][8]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=startdate",
+      "Value": "${data[${max}][9]}",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=enddate",
+      "Value": "${data[${max}][10]}",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][11]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

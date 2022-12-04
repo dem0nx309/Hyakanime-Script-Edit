@@ -1,0 +1,150 @@
+{
+  "Name": "Scraping info hyak",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "FAST",
+      "Value": "!replayspeed",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} < 3500",
+      "Value": "",
+      "Description": "Tant que i est supperieurs aux id"
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"romanji\"]@value",
+      "Value": "titre",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[4]/div/div/div/div/div/div",
+      "Value": "Format",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=NbEpisodes@value",
+      "Value": "Nombreep",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=EpAverage@value",
+      "Value": "Temps",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAn",
+      "Description": ""
+    },
+    {
+      "Command": "storeChecked",
+      "Target": "id=vf",
+      "Value": "Vf",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${i}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://hyakanime.fr/edit/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${titre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Format}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Nombreep}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Temps}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Vf}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${IdMal}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${IdAn}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "Scraping Hyak",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "Script rewatch",
+  "CreationDate": "2022-12-4",
+  "Commands": [
+    {
+      "Command": "prompt",
+      "Target": "Quel Pseudo ?",
+      "Value": "pseudo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "while_v2",
+      "Target": "${i} < 3000",
+      "Value": "",
+      "Description": "Tant que i est supperieurs aux id"
+    },
+    {
+      "Command": "open",
+      "Target": "https://api.hyakanime.fr/user/anime-information/${pseudo}/${i}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${i}) + 1",
+      "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=/html/body/pre",
+      "Value": "test",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${test}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "HyakRewatchBastien",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}
