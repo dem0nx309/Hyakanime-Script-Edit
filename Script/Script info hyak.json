@@ -1,16 +1,16 @@
 {
   "Name": "Script info hyak",
-  "CreationDate": "2022-12-4",
+  "CreationDate": "2023-1-13",
   "Commands": [
     {
-      "Command": "prompt",
-      "Target": "Renseigne l'id Mal",
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
       "Value": "idMal",
       "Description": ""
     },
     {
-      "Command": "prompt",
-      "Target": "Renseigne l'id Anilist",
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
       "Value": "idAnilist",
       "Description": ""
     },
@@ -36,30 +36,6 @@
       "Command": "store",
       "Target": "1",
       "Value": "i",
-      "Description": ""
-    },
-    {
-      "Command": "storeText",
-      "Target": "xpath=//*[@id=\"contentWrapper\"]/div[1]/div/div[1]/div/h1/strong",
-      "Value": "MainTitre",
-      "Description": "Mal"
-    },
-    {
-      "Command": "storeText",
-      "Target": "xpath=//*[@id=\"contentWrapper\"]/div/div/div/div/p",
-      "Value": "TitreAnglais",
-      "Description": "Mal"
-    },
-    {
-      "Command": "executeScript_Sandbox",
-      "Target": "var mystring2 = ${TitreAnglais}; var replaced2 = mystring2.replace(/#LNF/g,\"\"); return replaced2",
-      "Value": "TitreAnglais",
-      "Description": "Mal"
-    },
-    {
-      "Command": "store",
-      "Target": "true",
-      "Value": "!STATUSOK",
       "Description": ""
     },
     {
@@ -405,6 +381,12 @@
       "Description": ""
     },
     {
+      "Command": "store",
+      "Target": "0",
+      "Value": "statusId",
+      "Description": ""
+    },
+    {
       "Command": "end",
       "Target": "",
       "Value": "",
@@ -447,30 +429,6 @@
       "Description": ""
     },
     {
-      "Command": "executeScript",
-      "Target": "return ${test}.includes(\"Japanese\");",
-      "Value": "resultJap",
-      "Description": ""
-    },
-    {
-      "Command": "if_v2",
-      "Target": "${resultJap} == true",
-      "Value": "",
-      "Description": ""
-    },
-    {
-      "Command": "executeScript_Sandbox",
-      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Japanese: /g,\"\"); return replaced2",
-      "Value": "titreJap",
-      "Description": "Mal"
-    },
-    {
-      "Command": "end",
-      "Target": "",
-      "Value": "",
-      "Description": ""
-    },
-    {
       "Command": "end",
       "Target": "",
       "Value": "",
@@ -490,7 +448,7 @@
     },
     {
       "Command": "while_v2",
-      "Target": "${i} < 19",
+      "Target": "${i} < 21",
       "Value": "",
       "Description": "Tant que i est supperieurs aux id"
     },
@@ -504,6 +462,78 @@
       "Command": "executeScript_Sandbox",
       "Target": "return Number (${i}) + 1",
       "Value": "i",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Romaji\");",
+      "Value": "resultRomanji",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultRomanji} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Romaji\\n/g,\"\"); return replaced2",
+      "Value": "MainTitre",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"Native\");",
+      "Value": "resultNative",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultNative} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/Native\\n/g,\"\"); return replaced2",
+      "Value": "TitreJap",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return ${test}.includes(\"English\");",
+      "Value": "resultEnglish",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${resultEnglish} ==true",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "var mystring2 = ${test}; var replaced2 = mystring2.replace(/English\\n/g,\"\"); return replaced2",
+      "Value": "TitreAnglais",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
       "Description": ""
     },
     {
@@ -945,9 +975,33 @@
       "Description": ""
     },
     {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span[2]@content",
+      "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!STATUSOK} == false",
+      "Value": "",
+      "Description": ""
+    },
+    {
       "Command": "storeAttribute",
       "Target": "xpath=//*[@id=\"tab_1_pane\"]/div/table/tbody/tr[5]/td/span@content",
       "Value": "dateFin",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
       "Description": ""
     },
     {
@@ -970,8 +1024,44 @@
     },
     {
       "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
       "Target": "${TitreAnglais}",
       "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!Statusok} == false",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${MainTitre}",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
       "Description": ""
     },
     {
@@ -988,8 +1078,38 @@
     },
     {
       "Command": "store",
+      "Target": "true",
+      "Value": "!STATUSOK",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!ErrorIgnore",
+      "Description": ""
+    },
+    {
+      "Command": "store",
       "Target": "${sourceId}",
       "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "if_v2",
+      "Target": "${!Statusok} == false",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "end",
+      "Target": "",
+      "Value": "",
       "Description": ""
     },
     {
@@ -1002,6 +1122,12 @@
       "Command": "store",
       "Target": "${Duree}",
       "Value": "!csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!ErrorIgnore",
       "Description": ""
     },
     {
@@ -1085,6 +1211,232 @@
     {
       "Command": "open",
       "Target": "${lien}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "csvReadArray",
+      "Target": "hyakscrap.csv",
+      "Value": "data",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${!csvReadMaxRow}",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript_Sandbox",
+      "Target": "return Number (${max}) - 1",
+      "Value": "max",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=romanji",
+      "Value": "${data[${max}][0]}",
+      "Targets": [
+        "id=romanji",
+        "xpath=//*[@id=\"romanji\"]",
+        "xpath=//input[@id='romanji']",
+        "xpath=//div[3]/input",
+        "css=#romanji"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleEN",
+      "Value": "${data[${max}][1]}",
+      "Targets": [
+        "id=titleEN",
+        "xpath=//*[@id=\"titleEN\"]",
+        "xpath=//input[@id='titleEN']",
+        "xpath=//div[2]/input",
+        "css=#titleEN"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=titleJP",
+      "Value": "${data[${max}][2]}",
+      "Targets": [
+        "id=titleJP",
+        "xpath=//*[@id=\"titleJP\"]",
+        "xpath=//input[@id='titleJP']",
+        "xpath=//div[4]/input",
+        "css=#titleJP"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[1]/div/div/div[1]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-3-option-${data[${max}][3]}",
+      "Value": "",
+      "Targets": [
+        "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[4]/div/div[2]/div/div/div[2]/div/svg",
+        "css=#root > div:nth-child(3) > div.edit-body > div > div.edit-body-content > div:nth-child(1) > div:nth-child(7) > div > div:nth-child(2) > div > div.select__control.select__control--is-focused.select__control--menu-is-open.css-1pahdxg-control > div.select__indicators.css-1wy0on6 > div > svg"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[2]/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-4-option-${data[${max}][4]}",
+      "Value": "",
+      "Targets": [
+        "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[4]/div/div[2]/div/div/div[2]/div/svg",
+        "css=#root > div:nth-child(3) > div.edit-body > div > div.edit-body-content > div:nth-child(1) > div:nth-child(7) > div > div:nth-child(2) > div > div.select__control.select__control--is-focused.select__control--menu-is-open.css-1pahdxg-control > div.select__indicators.css-1wy0on6 > div > svg"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[4]/div/div[3]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-5-option-0",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=NbEpisodes",
+      "Value": "${data[${max}][5]}",
+      "Targets": [
+        "id=NbEpisodes",
+        "xpath=//*[@id=\"NbEpisodes\"]",
+        "xpath=//input[@id='NbEpisodes']",
+        "xpath=//div[5]/div/div/input",
+        "css=#NbEpisodes"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "id=EpAverage",
+      "Value": "",
+      "Targets": [
+        "id=EpAverage",
+        "xpath=//*[@id=\"EpAverage\"]",
+        "xpath=//input[@id='EpAverage']",
+        "xpath=//div[5]/div/div[2]/input",
+        "css=#EpAverage"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][6]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div[1]/div[6]/div/div[1]/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=react-select-6-option-${data[${max}][7]}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"react-select-7-input\"]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][8]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=startdate",
+      "Value": "${data[${max}][9]}",
+      "Targets": [
+        "id=startdate",
+        "xpath=//*[@id=\"startdate\"]",
+        "xpath=//input[@id='startdate']",
+        "xpath=//div[6]/div/div[4]/input",
+        "css=#startdate"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=enddate",
+      "Value": "${data[${max}][10]}",
+      "Targets": [
+        "id=enddate",
+        "xpath=//*[@id=\"enddate\"]",
+        "xpath=//input[@id='enddate']",
+        "xpath=//div[5]/input",
+        "css=#enddate"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "xpath=//*[@id=\"root\"]/div[2]/div[2]/div/div[2]/div/div[7]/div/div/div",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "${data[${max}][11]}${KEY_ENTER}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idMAL@value",
+      "Value": "idMal",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "id=idAnilist@Value",
+      "Value": "idAn",
+      "Description": ""
+    },
+    {
+      "Command": "XClick",
+      "Target": "id=sources ",
+      "Value": "",
+      "Targets": [
+        "id=sources",
+        "xpath=//*[@id=\"sources\"]",
+        "xpath=//textarea[@id='sources']",
+        "xpath=//div[2]/textarea",
+        "css=#sources"
+      ],
+      "Description": ""
+    },
+    {
+      "Command": "XType",
+      "Target": "https://myanimelist.net/anime/${idMal} ${KEY_ENTER}https://anilist.co/anime/${idAn} ${KEY_ENTER}https://anidb.net/anime/${data[${max}][12]}",
       "Value": "",
       "Description": ""
     }
